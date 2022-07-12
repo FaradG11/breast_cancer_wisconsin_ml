@@ -1,0 +1,34 @@
+input_data_path: "data/raw/data.csv"
+output_model_path: "models/model.pkl"
+metric_path: "models/metrics.json"
+splitting_params:
+  val_size: 0.3
+  random_state: 10
+  stratify: "diagnosis"
+train_params:
+  model_type: "KNeighborsClassifier"
+feature_params:
+  categorical_features:
+    - "some_column"
+  numerical_features:
+    - "radius_mean"
+    - "texture_mean"
+    - "smoothness_mean"
+    - "concavity_mean"
+    - "symmetry_mean"
+    - "fractal_dimension_mean"
+    - "radius_se"
+    - "texture_se"
+    - "smoothness_se"
+    - "concavity_se"
+    - "symmetry_se"
+    - "fractal_dimension_se"
+    - "smoothness_worst"
+    - "concavity_worst"
+    - "symmetry_worst"
+    - "fractal_dimension_worst"
+
+  features_to_drop:
+    - 'id'
+  target_col: "diagnosis"
+
