@@ -5,6 +5,6 @@ setup(
     packages=find_packages(),
     version='0.1.0',
     description='Example of ml project',
-    author='Your name (or your organization/company/team)',
+    author='Grachya Faradzhyan',
     license='MIT',
 )

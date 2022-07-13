@@ -26,7 +26,7 @@ def train_model(
 
 
 def predict_model(
-    model: SklearnClassifierModel, features: pd.DataFrame, use_log_trick: bool = True
+    model: SklearnClassifierModel, features: pd.DataFrame, use_log_trick: bool = False
 ) -> np.ndarray:
     predicts = model.predict(features)
     if use_log_trick:
@@ -50,4 +50,10 @@ def evaluate_model(
 def serialize_model(model: SklearnClassifierModel, output: str) -> str:
     with open(output, "wb") as f:
         pickle.dump(model, f)
+    return output
+
+
+def serialize_pipe(pipeline, output: str) -> str:
+    with open(output, "wb") as f:
+        pickle.dump(pipeline, f)
     return output

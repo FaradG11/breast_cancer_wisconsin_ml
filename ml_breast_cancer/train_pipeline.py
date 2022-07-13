@@ -3,7 +3,7 @@ import logging
 import sys
 
 import click
-
+from sklearn.pipeline import make_pipeline
 from ml_breast_cancer.data import read_data, split_train_val_data, drop_columns
 from ml_breast_cancer.enities.train_pipeline_params import (
     TrainingPipelineParams,
@@ -14,6 +14,7 @@ from ml_breast_cancer.features.build_features import column_transformer, target_
 from ml_breast_cancer.models import (
     train_model,
     serialize_model,
+    serialize_pipe,
     predict_model,
     evaluate_model,
 )
@@ -56,6 +57,8 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
         train_features, train_target, training_pipeline_params.train_params
     )
 
+    pipe = make_pipeline(feature_transformer, model)
+
     val_features, val_target = make_features(
         feature_transformer,
         val_df,
@@ -77,7 +80,7 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
         json.dump(metrics, metric_file)
     logger.info(f"metrics is {metrics}")
 
-    path_to_model = serialize_model(model, training_pipeline_params.output_model_path)
+    path_to_model = serialize_pipe(pipe, training_pipeline_params.output_model_path)
 
     return path_to_model, metrics
 

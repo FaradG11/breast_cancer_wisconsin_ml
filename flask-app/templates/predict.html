@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Predict Diagnosis
+{% endblock %}
+
+{% block body %}
+  <h1>Predict Diagnosis</h1>
+  <form method="post" class="form-control form-control-lg">
+
+    {{ form.hidden_tag('') }}
+
+    {{ form.input_data.label(class='form-label') }}
+    {{ form.input_data(class='form-control', placeholder='Write here correct json with observation data') }}
+
+
+    {% if form.errors %}
+      <div class="errors my-2">
+        {% for name, errors in form.errors.items() %}
+          <div class="alert alert-danger">
+            {% if name %}
+              <strong>{{ name }}</strong>
+            {% endif %}
+            <ul>
+              {% for error in errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary my-2">Predict</button>
+  </form>
+  <br>
+{% endblock %}
