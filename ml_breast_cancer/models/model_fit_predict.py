@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-from ml_breast_cancer.enities.train_params import TrainingParams
+from enities.train_params import TrainingParams
 
 SklearnClassifierModel = Union[KNeighborsClassifier,LogisticRegression]
 

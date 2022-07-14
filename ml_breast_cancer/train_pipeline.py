@@ -1,17 +1,20 @@
 import json
 import logging
 import sys
+import shutil
+import os
+from datetime import datetime
 
 import click
 from sklearn.pipeline import make_pipeline
-from ml_breast_cancer.data import read_data, split_train_val_data, drop_columns
-from ml_breast_cancer.enities.train_pipeline_params import (
+from data import read_data, split_train_val_data, drop_columns
+from enities.train_pipeline_params import (
     TrainingPipelineParams,
     read_training_pipeline_params,
 )
-from ml_breast_cancer.features import make_features
-from ml_breast_cancer.features.build_features import column_transformer, target_encoding
-from ml_breast_cancer.models import (
+from features import make_features
+from features.build_features import column_transformer, target_encoding
+from models import (
     train_model,
     serialize_model,
     serialize_pipe,
@@ -24,7 +27,7 @@ handler = logging.StreamHandler(sys.stdout)
 logger.addHandler(handler)
 
 
-def train_pipeline(training_pipeline_params: TrainingPipelineParams):
+def train_pipeline(training_pipeline_params: TrainingPipelineParams, config_path):
     logger.info(f"start train pipeline with params {training_pipeline_params}")
     data = read_data(training_pipeline_params.input_data_path)
 
@@ -76,11 +79,24 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
         val_target,
     )
 
-    with open(training_pipeline_params.metric_path, "w") as metric_file:
+    vers_path = os.path.join(
+        os.getcwd(),
+        'models',
+        'versions',
+        datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
+    )
+
+    os.makedirs(vers_path, exist_ok=True)
+
+    with open(os.path.join(vers_path,training_pipeline_params.metric_path), "w") as metric_file:
         json.dump(metrics, metric_file)
     logger.info(f"metrics is {metrics}")
 
     path_to_model = serialize_pipe(pipe, training_pipeline_params.output_model_path)
+
+    shutil.copy(training_pipeline_params.output_model_path, vers_path)
+    shutil.copy(training_pipeline_params.input_data_path, vers_path)
+    shutil.copy(config_path, vers_path)
 
     return path_to_model, metrics
 
@@ -89,7 +105,7 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
 @click.argument("config_path")
 def train_pipeline_command(config_path: str):
     params = read_training_pipeline_params(config_path)
-    train_pipeline(params)
+    train_pipeline(params, config_path)
 
 
 if __name__ == "__main__":

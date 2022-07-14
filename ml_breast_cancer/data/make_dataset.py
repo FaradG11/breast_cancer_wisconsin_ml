@@ -4,7 +4,7 @@ from typing import Tuple
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from ml_breast_cancer.enities import SplittingParams, FeatureParams
+from enities import SplittingParams, FeatureParams
 
 
 def read_data(path: str) -> pd.DataFrame:

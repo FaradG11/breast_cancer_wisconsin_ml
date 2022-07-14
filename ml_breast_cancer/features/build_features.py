@@ -8,7 +8,7 @@ from sklearn.impute._base import _BaseImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 
-from ml_breast_cancer.enities.feature_params import FeatureParams
+from enities.feature_params import FeatureParams
 
 
 def target_encoding(
