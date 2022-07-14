@@ -40,9 +40,11 @@ pytest tests/
 
 Сервис имеет 2 способа обращения:
 1) Запрос к серверу на страницу '/' с телом запроса в виде JSON файла с параметрами обследования;
+
    ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015919.png)
 
 2) Форма на странице 'predict/' в которую можно вставить JSON с параметрами обследования.
+
 ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015222.png)
 ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015123.png)
 
