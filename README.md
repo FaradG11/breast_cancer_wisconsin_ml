@@ -34,16 +34,18 @@ pytest tests/
 
 На **пятом** этапе я настроил версионирование моделей. Все готовые модели, метрики, исходные данный и файлы конфигурации хранятся в папке "models/versions/".
 
-   ![](screenshots/Снимок экрана 2022-07-14 205919.png)
+   ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20205919.png)
 
 На **шестом** этапе я создал микросервис REST API на фрэймворке Flask, который, использую полученную модель предсказывает прогноз. Подготовил Docker файл с сервисом. 
 
 Сервис имеет 2 способа обращения:
 1) Запрос к серверу на страницу '/' с телом запроса в виде JSON файла с параметрами обследования;
-   ![](screenshots/Снимок экрана 2022-07-14 015919.png)
+   ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015919.png)
 
 2) Форма на странице 'predict/' в которую можно вставить JSON с параметрами обследования.
-   ![](screenshots/Снимок экрана 2022-07-14 015123.png) ![](screenshots/Снимок экрана 2022-07-14 015222.png)
+![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015222.png)
+![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015123.png)
+
 
 
 Ниже представлена схема проекта:
