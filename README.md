@@ -1,4 +1,4 @@
-ML project
+Разработка и продуктивизация модели
 ==============================
 
 Целью данного проекта являлось создание модели машинного обучения для определения типа опухоли молочной железы используя метод К ближайших соседей(kNN)
@@ -32,22 +32,27 @@ python ml_breast_cancer/train_pipeline.py configs/train_config.yaml
 pytest tests/
 ~~~
 
-На **пятом** этапе я настроил версионирование моделей. Все готовые модели, метрики, исходные данный и файлы конфигурации хранятся в папке "models/versions/".
+На **пятом** этапе я настроил версионирование моделей. Все готовые модели, метрики, исходные данный и файлы конфигурации хранятся в папке "models/versions/".<br>
+<details><summary>Скриншот запуска приложения в консоли</summary><br>
 
    ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20205919.png)
+</details>
 
 На **шестом** этапе я создал микросервис REST API на фрэймворке Flask, который, использую полученную модель предсказывает прогноз. Подготовил Docker файл с сервисом. 
 
 Сервис имеет 2 способа обращения:
-1) Запрос к серверу на страницу '/' с телом запроса в виде JSON файла с параметрами обследования;
+1) Запрос к серверу на страницу '/' с телом запроса в виде JSON файла с параметрами обследования;<br>
+<details><summary>Скриншот с тестовым запросом</summary><br>
 
    ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015919.png)
+</details>
 
-2) Форма на странице 'predict/' в которую можно вставить JSON с параметрами обследования.
+2) Форма на странице 'predict/' в которую можно вставить JSON с параметрами обследования.<br>
+<details><summary>Скриншоты с формой на сайте</summary><br>
 
 ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015222.png)
 ![](https://github.com/FaradG11/breast_cancer_wisconsin_ml/blob/main/screenshots/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-07-14%20015123.png)
-
+</details>
 
 
 Ниже представлена схема проекта:
