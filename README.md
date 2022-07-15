@@ -39,7 +39,7 @@ pytest tests/
 </details>
 
 На **шестом** этапе я создал микросервис REST API на фрэймворке Flask, который, использую полученную модель предсказывает прогноз. Подготовил Docker файл с сервисом. 
-
+Сервис по умолчанию расположен по адресу: http://localhost:5000/ 
 Сервис имеет 2 способа обращения:
 1) Запрос к серверу на страницу '/' с телом запроса в виде JSON файла с параметрами обследования;<br>
 <details><summary>Скриншот с тестовым запросом</summary><br>
@@ -60,42 +60,39 @@ pytest tests/
 Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+   
+    ├── README.md          <- README с описанием проекта.
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   └── raw            <- Оригинальные данные для модели проекта.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs               <- Sphinx проект
+    │ 
+    ├── models             <- Папка с дампами последней обученной модели в бинарном формате
+    │   │    
+    │   ├── versions       <- Папка с сохраненными версиями пердыдущих обучений. В ней хранятся модели в бинарном формате, конфигурации,         
+    │   │                     данные и результирующие метрики
+    ├── notebooks          <- Оригинальный код, на котором основан данный проект и файл зависимостей для его выполнения в формате Jupyter notebooks.
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── references         <- Справочники и другие пояснительные материалы.
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    ├── reports            <- Сформированные файлы предсказательной аналитики (HTML, PDF, CSV).
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    ├── requirements.txt   <- Файл зависимостей для воспроизведения среды выполнения
+    │                         
+    ├── requirement_rest_api.txt  <- Файл зависимостей для воспроизведения rest-api сервиса    
     │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── setup.py           <- Сценарий установки модуля проекта.
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── ml_example                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    ├── ml_breast_cancer          <- Исходный код модуля для использования в данном проекте.
+    │   ├── __init__.py    
     │   │
-    │   ├── data           <- code to download or generate data
+    │   ├── data           <- Код загрузки данных модели.
     │   │
-    │   ├── features       <- code to turn raw data into features for modeling
+    │   ├── features       <- Код подготовки признаков модели 
     │   │
-    │   ├── models         <- code to train models and then use trained models to make
+    │   ├── models         <- Код реализации тренировки модели и прогнозирования.
     │   │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    └── tox.ini            <- Конфигурация линтера
 
 
 --------
